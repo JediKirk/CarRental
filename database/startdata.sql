@@ -100,10 +100,10 @@ create table rental_information
 create table car_pick_up_location
 (
     id               bigint not null,
-    car              bigint not null,
-    pick_up_location bigint not null,
+    car_id              bigint not null,
+    pick_up_location_id bigint not null,
     constraint car_pick_up_location_pk
         primary key (id),
-    foreign key (car) references car (id),
-    foreign key (pick_up_location) references pick_up_location (id)
+    foreign key (car_id) references car (id),
+    foreign key (pick_up_location_id) references pick_up_location (id)
 );
