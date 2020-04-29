@@ -39,8 +39,7 @@ alter table customer_details
 create table car_class
 (
     class             varchar(15) not null,
-    transmission_type boolean     null comment 'true - automatic
-false - manual',
+    transmission_type varchar(10)  not  null ,
     air_conditioning  boolean     null,
     constraint car_class_pk
         primary key (class)
