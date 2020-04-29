@@ -43,11 +43,6 @@ public class DaoConfig {
         /* create, create-drop, validate, and update */
         hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "validate");
         hibernateProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL8Dialect");
-        hibernateProperties.setProperty("hibernate.show_sql", "true");
-        hibernateProperties.setProperty("hibernate.format_sql", "true");
-        hibernateProperties.setProperty("hibernate.cache.region.factory_class", "org.hibernate.cache.ehcache.EhCacheRegionFactory");
-        hibernateProperties.setProperty("cache.use_second_level_cache", "true");
-        hibernateProperties.setProperty("hibernate.connection.isolation", String.valueOf(Connection.TRANSACTION_REPEATABLE_READ));
         return hibernateProperties;
     }
 
