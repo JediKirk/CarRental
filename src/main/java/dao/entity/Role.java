@@ -13,5 +13,5 @@ public class Role extends BaseEntity{
     @Column(name = "phone_number_id")
     private Long phoneNumberId;
     @Column(name = "access_right")
-    private String accessRight;
+    private AccessRight accessRight;
 }

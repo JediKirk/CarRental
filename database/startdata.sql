@@ -9,7 +9,8 @@ create table user
     constraint customer_pk
         primary key (id)
 );
-
+create unique index user_uindex
+    on user (phone_number);
 create table customer_details
 (
     id                     bigint      not null,
@@ -117,4 +118,5 @@ create table role
         primary key (id),
     foreign key (phone_number_id) references user (id)
 );
+
 

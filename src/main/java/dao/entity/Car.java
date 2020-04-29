@@ -1,9 +1,8 @@
 package dao.entity;
 
 import lombok.Data;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+
+import javax.persistence.*;
 import java.time.LocalDate;
 
 
@@ -29,6 +28,7 @@ public class Car extends BaseEntity {
     private int priceAuto;
     @Column(name = "rental_day_price")
     private int rentalDayPrice;
-    @Column(name = "car_class_id")
-    private Long carClassId;
+    @ManyToOne
+    @JoinColumn(name = "car_class_id")
+    private CarClass carClass;
 }
