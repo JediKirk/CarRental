@@ -38,11 +38,12 @@ alter table customer_details
 
 create table car_class
 (
+    id                bigint      not null,
     class             varchar(15) not null,
-    transmission_type varchar(10)  not  null ,
+    transmission_type varchar(10) not null,
     air_conditioning  boolean     null,
     constraint car_class_pk
-        primary key (class)
+        primary key (id)
 
 );
 create table car
@@ -57,11 +58,11 @@ create table car
     mileage               int         not null,
     price_auto            int         not null,
     rental_day_price      int         not null,
-    car_class             varchar(15) not null,
+    car_class_id          bigint not null,
     constraint car_pk
         primary key (id),
     constraint car_class_fk
-        foreign key (car_class) references car_class (class)
+        foreign key (car_class_id) references car_class (id)
 );
 
 create unique index car_body_number_uindex
@@ -82,14 +83,14 @@ create table pick_up_location
 
 create table rental_information
 (
-    id            bigint not null,
-    date_of_issue date   not null,
-    rental_time   int    not null,
-    return_date   date   not null,
-    car_id        bigint not null,
-    customer_id   bigint not null,
-    rental_price  int    not null,
-    pick_up_location_id bigint not null ,
+    id                  bigint not null,
+    date_of_issue       date   not null,
+    rental_time         int    not null,
+    return_date         date   not null,
+    car_id              bigint not null,
+    customer_id         bigint not null,
+    rental_price        int    not null,
+    pick_up_location_id bigint not null,
     constraint rental_information_pk
         primary key (id),
     foreign key (customer_id) references customer_details (id),
@@ -99,7 +100,7 @@ create table rental_information
 
 create table car_pick_up_location
 (
-    id               bigint not null,
+    id                  bigint not null,
     car_id              bigint not null,
     pick_up_location_id bigint not null,
     constraint car_pick_up_location_pk
@@ -109,11 +110,11 @@ create table car_pick_up_location
 );
 create table role
 (
-    id bigint not null,
-    phone_number_id bigint null,
-    access_right varchar(5) not null,
+    id              bigint     not null,
+    phone_number_id bigint     null,
+    access_right    varchar(5) not null,
     constraint role_pk
         primary key (id),
-        foreign key (phone_number_id) references user (id)
+    foreign key (phone_number_id) references user (id)
 );
 
