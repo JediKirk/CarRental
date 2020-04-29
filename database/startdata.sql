@@ -3,40 +3,38 @@ USE car_rental_service;
 
 create table customer
 (
-    id            bigint      not null,
-    first_name    varchar(25) not null,
-    second_name   varchar(25) not null,
-    date_of_birth date        not null,
-    sex           int         not null comment '0 — undefined
-1 — male
-2 — female',
-    phone_number  int         not null,
-    country       varchar(30) not null,
-    city          varchar(30) not null,
-    street        varchar(30) not null,
-    building      varchar(5)  not null,
-    apartment     varchar(3)  null,
-    passport_id   varchar(25) not null,
+    id           bigint not null,
+    phone_number int    not null,
+    password     varchar(25),
     constraint customer_pk
         primary key (id)
 );
 
-
-create table passport
+create table customer_details
 (
-    passport_id          varchar(25) not null,
-    date_of_issue        date        not null,
-    expiry_date          date        not null,
-    place_of_birthday    varchar(30) not null,
-    country_of_residence varchar(30) not null
+    id                     bigint      not null,
+    first_name             varchar(25) not null,
+    second_name            varchar(25) not null,
+    date_of_birth          date        not null,
+    sex                    varchar(10) not null,
+    phone_number_id        bigint      not null,
+    country                varchar(30) not null,
+    city                   varchar(30) not null,
+    street                 varchar(30) not null,
+    building               varchar(5)  not null,
+    apartment              varchar(3)  null,
+    passport_id            varchar(25) not null,
+    passport_date_of_issue date        not null,
+    passport_expiry_date   date        not null,
+    place_of_birthday      varchar(30) not null,
+    country_of_residence   varchar(30) not null,
+    constraint customer_details_pk
+        primary key (id)
 );
 
-create unique index passport_passport_id_uindex
-    on passport (passport_id);
-
-alter table customer
-    add constraint customer_fk
-        foreign key (passport_id) references passport (passport_id);
+alter table customer_details
+    add constraint customer_details_customer_id_fk
+        foreign key (phone_number_id) references customer (id);
 
 create table car_class
 (
@@ -62,18 +60,26 @@ create table car
     rental_day_price      int         not null,
     car_class             varchar(15) not null,
     constraint car_pk
-        primary key (id)
-
+        primary key (id),
+    constraint car_class_fk
+        foreign key (car_class) references car_class (class)
 );
-alter table car
-    add constraint car_class_fk
-        foreign key (car_class) references car_class (class);
 
 create unique index car_body_number_uindex
     on car (body_number);
-
 create unique index car_registered_car_number_uindex
     on car (registered_car_number);
+
+create table pick_up_location
+(
+    id       bigint      not null,
+    country  varchar(30) not null,
+    city     varchar(30) not null,
+    street   varchar(30) not null,
+    building varchar(5)  not null,
+    constraint pick_up_location_pk
+        primary key (id)
+);
 
 create table rental_information
 (
@@ -84,38 +90,21 @@ create table rental_information
     car_id        bigint not null,
     customer_id   bigint not null,
     rental_price  int    not null,
+    pick_up_location_id bigint not null ,
     constraint rental_information_pk
-        primary key (id)
+        primary key (id),
+    foreign key (customer_id) references customer_details (id),
+    foreign key (car_id) references car (id),
+    foreign key (pick_up_location_id) references pick_up_location (id)
 );
-alter table rental_information
-    add constraint rental_information_customer_fk
-        foreign key (customer_id) references customer (id);
-alter table rental_information
-    add constraint rental_information_car_fk
-        foreign key (car_id) references car (id);
-
-create table pick_up_location
-(
-    id       bigint         not null,
-    country  varchar(30) not null,
-    city     varchar(30) not null,
-    street   varchar(30) not null,
-    building varchar(5)  not null,
-    constraint pick_up_location_pk
-    primary key (id)
-    );
 
 create table car_pick_up_location
 (
-    id                 bigint not null,
-    car                bigint not null,
-    pick_up_location bigint    not null,
+    id               bigint not null,
+    car              bigint not null,
+    pick_up_location bigint not null,
     constraint car_pick_up_location_pk
-    primary key (id)
-    );
-alter table car_pick_up_location
-    add constraint car_pick_up_location_car_fk
-    foreign key (car) references car (id);
-alter table car_pick_up_location
-    add constraint car_pick_up_location_location_fk
-    foreign key (pick_up_location) references pick_up_location (id);
+        primary key (id),
+    foreign key (car) references car (id),
+    foreign key (pick_up_location) references pick_up_location (id)
+);
