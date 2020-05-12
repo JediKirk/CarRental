@@ -45,4 +45,7 @@ public class Car extends BaseEntity {
     @OneToMany(mappedBy = "pickUpLocationId")
     private List<RentalInformation> rentalInformation;
 
+    @ManyToMany(mappedBy = "cars")
+    private List<PickUpLocation> pickUpLocations;
+
 }

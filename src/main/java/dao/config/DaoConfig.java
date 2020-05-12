@@ -32,7 +32,7 @@ public class DaoConfig {
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean factoryBean = new LocalSessionFactoryBean();
         factoryBean.setDataSource(dataSource());
-        factoryBean.setPackagesToScan("com.teachmeskills.dao.entity");
+        factoryBean.setPackagesToScan("dao.entity");
         factoryBean.setHibernateProperties(hibernateProperties());
         return factoryBean;
     }
