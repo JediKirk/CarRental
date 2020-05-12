@@ -7,31 +7,41 @@ import java.time.LocalDate;
 
 @Data
 @Entity
-@Table(name="customer_details")
-public class CustomerDetails extends BaseEntity{
+@Table(name = "user_details")
+public class UserDetails extends BaseEntity {
     @Column(name = "first_name")
     private String firstName;
+
     @Column(name = "second_name")
     private String secondName;
+
     @Column(name = "date_of_birth")
     private LocalDate dateOfBirth;
-    @Column(name = "sex")
+
+    @Column
     private Sex sex;
+
     @OneToOne
-    @JoinColumn(name = "phone_number_id")
+    @JoinColumn(name = "user_id")
     private User user;
+
     @Embedded
     private Address address;
+
     private String apartment;
+
     @Column(name = "passport_id")
     private String passportId;
+
     @Column(name = "passport_date_of_issue")
     private LocalDate passportDateOfIssue;
+
     @Column(name = "passport_expiry_date")
-    private LocalDate passportExpiryDate;
+    private LocalDate passport_expiry_date;
+
     @Column(name = "place_of_birthday")
-    private String placeOfBirthday;
+    private String placeOfBirthDay;
+
     @Column(name = "country_of_residence")
     private String countryOfResidence;
-
 }

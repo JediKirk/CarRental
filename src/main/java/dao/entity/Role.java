@@ -1,5 +1,6 @@
 package dao.entity;
 
+
 import lombok.Data;
 
 import javax.persistence.*;
@@ -9,8 +10,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "role")
 public class Role extends BaseEntity {
-    @OneToOne(mappedBy = "phoneNumber")
-    private User user;
-    @Column(name = "access_right")
+
+    @Column(name =  "access_right")
     private AccessRight accessRight;
 }
