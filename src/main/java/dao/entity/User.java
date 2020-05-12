@@ -3,6 +3,7 @@ package dao.entity;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 @Entity
@@ -11,6 +12,9 @@ public class User extends BaseEntity {
 
     @OneToOne(mappedBy = "user")
     private UserDetails userDetails;
+
+    @OneToMany(mappedBy = "user")
+    private List<RentalInformation> rentalInformation;
 
     @Column(name = "phone_number")
     private int phoneNumber;

@@ -93,12 +93,12 @@ create table rental_information
     rental_time         int    not null,
     return_date         date   not null,
     car_id              bigint not null,
-    customer_id         bigint not null,
+    user_id         bigint not null,
     rental_price        int    not null,
     pick_up_location_id bigint not null,
     constraint rental_information_pk
         primary key (id),
-    foreign key (customer_id) references user (id),
+    foreign key (user_id) references user (id),
     foreign key (car_id) references car (id),
     foreign key (pick_up_location_id) references pick_up_location (id)
 );
