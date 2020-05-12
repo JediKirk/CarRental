@@ -42,8 +42,7 @@ public class Car extends BaseEntity {
     @JoinColumn(name = "car_class_id")
     private CarClass carClass;
 
-    @OneToMany(mappedBy = "car")
+    @OneToMany(mappedBy = "pickUpLocationId")
     private List<RentalInformation> rentalInformation;
-
 
 }

@@ -31,6 +31,6 @@ public class RentalInformation extends BaseEntity {
     private int rentalPrice;
 
     @ManyToOne
-    @JoinColumn(name = "pick_up_location_id")
+    @JoinColumn(name = "pick_up_location")
     private PickUpLocation pickUpLocationId;
 }
