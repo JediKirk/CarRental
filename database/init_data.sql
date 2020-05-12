@@ -4,13 +4,12 @@ USE car_rental_service;
 create table user
 (
     id           bigint not null,
-    phone_number int    not null,
+    phone_number int    not null UNIQUE ,
     password     varchar(25),
     constraint customer_pk
         primary key (id)
 );
-create unique index user_uindex
-    on user (phone_number);
+
 create table customer_details
 (
     id                     bigint      not null,

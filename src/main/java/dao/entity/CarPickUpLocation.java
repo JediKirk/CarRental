@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Data
 @Entity
-@Table(name="car_pick_up_location")
+@Table(name = "car_pick_up_location")
 public class CarPickUpLocation extends BaseEntity {
     @Column(name = "car_id")
     private Long carId;

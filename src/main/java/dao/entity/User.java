@@ -9,9 +9,9 @@ import javax.persistence.Table;
 @Data
 @Entity
 @Table(name = "user")
-public class User extends BaseEntity{
-    @Column(name = "phone_number")
+public class User extends BaseEntity {
+    @Column(name = "phone_number", unique = true)
     private int phoneNumber;
-    @Column(name = "password")
+    @Column
     private String password;
 }

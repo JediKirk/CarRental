@@ -8,7 +8,7 @@ import java.time.LocalDate;
 
 @Data
 @Entity
-@Table(name="car")
+@Table(name = "car")
 public class Car extends BaseEntity {
     @Column(name = "registered_car_number")
     private String registeredCarNumber;
@@ -22,7 +22,7 @@ public class Car extends BaseEntity {
     private String brand;
     @Column(name = "model")
     private String model;
-    @Column(name = "mileage" )
+    @Column(name = "mileage")
     private int mileage;
     @Column(name = "price_auto")
     private int priceAuto;

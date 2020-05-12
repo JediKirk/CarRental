@@ -2,10 +2,7 @@ package dao.entity;
 
 import lombok.Data;
 
-import javax.persistence.Column;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Data
@@ -20,8 +17,9 @@ public class CustomerDetails extends BaseEntity{
     private LocalDate dateOfBirth;
     @Column(name = "sex")
     private Sex sex;
-    @Column(name = "phone_number_id")
-    private Long phoneNumberId;
+    @OneToOne
+    @JoinColumn(name = "phone_number_id")
+    private User user;
     @Embedded
     private Address address;
     private String apartment;
