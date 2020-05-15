@@ -31,17 +31,15 @@ public class CarRepositoryImpl implements CarRepository {
     }
 
     @Override
-    public Car saveCar(String registeredCarNumber, String bodyNumber, String engineType, LocalDate yearOfIssue, String brand,
-                       String model, int mileage, int priceAuto, int rentalDayPrice, Long carClass) {
+    public Car saveCar(String registeredCarNumber,  String engineType, LocalDate yearOfIssue, String brand,
+                       String model,  int rentalDayPrice, Long carClass) {
         Car car = new Car();
         car.setRegisteredCarNumber(registeredCarNumber);
-        car.setBodyNumber(bodyNumber);
+
         car.setEngineType(engineType);
         car.setYearOfIssue(yearOfIssue);
         car.setBrand(brand);
         car.setModel(model);
-        car.setMileage(mileage);
-        car.setPriceAuto(priceAuto);
         car.setRentalDayPrice(rentalDayPrice);
         CarClass carClassEntity = getCarClass(carClass);
         car.setCarClass(carClassEntity);
@@ -61,6 +59,6 @@ public class CarRepositoryImpl implements CarRepository {
                 .getResultList()
                 .stream()
                 .findFirst()
-                .orElseThrow(() -> new RuntimeException("not found"));
+                .orElseThrow(() -> new RuntimeException("Car class not found"));
     }
 }

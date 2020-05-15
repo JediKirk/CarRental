@@ -13,8 +13,8 @@ import java.util.Optional;
 public interface CarRepository {
     Optional<Car> getCarById (Long id);
 
-    Car saveCar(String registeredCarNumber, String bodyNumber, String engineType, LocalDate yearOfIssue, String brand,
-                String model, int mileage, int priceAuto, int rentalDayPrice, Long CarClass);
+    Car saveCar(String registeredCarNumber,  String engineType, LocalDate yearOfIssue, String brand,
+                String model,  int rentalDayPrice, Long CarClass);
 
     CarClass getCarClass(Long id);
 }

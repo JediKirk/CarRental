@@ -56,13 +56,10 @@ create table car
 (
     id                    bigint      not null,
     registered_car_number varchar(7)  not null,
-    body_number           varchar(15) not null,
     engine_type           varchar(10) not null,
     year_of_issue         date        not null,
     brand                 varchar(10) not null,
     model                 varchar(15) not null,
-    mileage               int         not null,
-    price_auto            int         not null,
     rental_day_price      int         not null,
     car_class_id          bigint not null,
     constraint car_pk
