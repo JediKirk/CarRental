@@ -12,6 +12,7 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import java.util.Properties;
+import java.util.TimeZone;
 
 @Configuration
 @EnableTransactionManagement
@@ -21,7 +22,8 @@ public class DaoConfig {
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setUrl("jdbc:mysql://localhost:3306/companies");
+        String url = "jdbc:mysql://localhost:3306/car_rental_service?serverTimezone=" + TimeZone.getDefault().getID();
+        dataSource.setUrl(url);
         dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
         dataSource.setUsername("root");
         dataSource.setPassword("Pasha2pac");

@@ -12,5 +12,5 @@ import javax.persistence.*;
 public class Role extends BaseEntity {
 
     @Column(name =  "access_right")
-    private AccessRight accessRight;
+    private String accessRight;
 }

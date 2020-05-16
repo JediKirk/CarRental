@@ -18,8 +18,8 @@ public class UserDetails extends BaseEntity {
     @Column(name = "date_of_birth")
     private LocalDate dateOfBirth;
 
-    @Column
-    private Sex sex;
+    @Column(name = "sex")
+    private String gender;
 
     @OneToOne
     @JoinColumn(name = "user_id")

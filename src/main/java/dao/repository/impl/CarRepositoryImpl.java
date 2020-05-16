@@ -8,10 +8,11 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
+
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import java.time.LocalDate;
+import javax.transaction.Transactional;
 import java.util.Optional;
 
 @Repository
@@ -22,20 +23,16 @@ public class CarRepositoryImpl implements CarRepository {
 
     @Override
     public Optional<Car> getCarById(Long id) {
-        return sessionFactory.getCurrentSession()
-                .createQuery("select e from " + "Car" + " e where e.id = :id", Car.class)
-                .setParameter("id", id)
-                .getResultList()
-                .stream()
-                .findFirst();
+        return Optional.ofNullable(sessionFactory.getCurrentSession()
+                .get(Car.class, id));
     }
 
     @Override
-    public Car saveCar(String registeredCarNumber,  String engineType, LocalDate yearOfIssue, String brand,
-                       String model,  int rentalDayPrice, Long carClass) {
+    @Transactional
+    public Car saveCar(String registeredCarNumber, String engineType, int yearOfIssue,
+                       String brand, String model, int rentalDayPrice, Long carClass) {
         Car car = new Car();
         car.setRegisteredCarNumber(registeredCarNumber);
-
         car.setEngineType(engineType);
         car.setYearOfIssue(yearOfIssue);
         car.setBrand(brand);
@@ -49,7 +46,7 @@ public class CarRepositoryImpl implements CarRepository {
     }
 
     @Override
-    public CarClass getCarClass(Long id){
+    public CarClass getCarClass(Long id) {
         Session session = sessionFactory.getCurrentSession();
         CriteriaBuilder cb = session.getCriteriaBuilder();
         CriteriaQuery<CarClass> query = cb.createQuery(CarClass.class);

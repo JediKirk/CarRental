@@ -1,16 +1,21 @@
 package service.impl;
 
-import dao.entity.Car;
-import dao.repository.impl.CarRepositoryImpl;
+import dao.repository.CarRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 import service.api.CarAddService;
 
-import java.time.LocalDate;
 
+@RequiredArgsConstructor
+@Service
 public class CarAddServiceImpl implements CarAddService {
+
+    private final CarRepository carRepository;
+
     @Override
-    public Car add(String registeredCarNumber, String engineType,
-                   LocalDate yearOfIssue, String brand, String model,
-                   int rentalDayPrice, Long CarClass) {
-        new CarRepositoryImpl()
+    public void add(String registeredCarNumber, String engineType, int yearOfIssue,
+                    String brand, String model, int rentalDayPrice, Long carClass) {
+        carRepository.saveCar(registeredCarNumber, engineType, yearOfIssue,
+                brand, model, rentalDayPrice, carClass);
     }
 }

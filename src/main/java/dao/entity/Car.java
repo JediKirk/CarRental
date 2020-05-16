@@ -3,22 +3,22 @@ package dao.entity;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.List;
-
 
 @Data
 @Entity
 @Table(name = "car")
 public class Car extends BaseEntity {
+
     @Column(name = "registered_car_number")
     private String registeredCarNumber;
+
 
     @Column(name = "engine_type")
     private String engineType;
 
     @Column(name = "year_of_issue")
-    private LocalDate yearOfIssue;
+    private int yearOfIssue;
 
     @Column
     private String brand;
@@ -37,6 +37,6 @@ public class Car extends BaseEntity {
     private List<RentalInformation> rentalInformation;
 
     @ManyToMany(mappedBy = "cars")
-    private List<PickUpLocation> pickUpLocations;
+    private List<PickUpLocation> pickUpLocationPickUpLocations;
 
 }
