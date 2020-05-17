@@ -1,4 +1,5 @@
 package web.config;
+
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -16,6 +17,7 @@ import org.springframework.web.servlet.view.JstlView;
 
 import java.util.Locale;
 
+
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = {"web.controller"})
@@ -25,10 +27,11 @@ public class WebConfig implements WebMvcConfigurer {
     public ViewResolver internalResourceViewResolver() {
         InternalResourceViewResolver bean = new InternalResourceViewResolver();
         bean.setViewClass(JstlView.class);
-        bean.setPrefix("/WEB-INF/jsp/");
+        bean.setPrefix("WEB-INF/jsp/");
         bean.setSuffix(".jsp");
         return bean;
     }
+
 
     @Bean
     public MessageSource messageSource() {

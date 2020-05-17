@@ -10,17 +10,22 @@ import service.api.CarAddService;
 
 @Controller
 @RequiredArgsConstructor
-public class CarAddController {
+public class  CarAddController {
 
     private final CarAddService carAddService;
 
-    @GetMapping(path = "/car_add/{registeredCarNumber}/{engineType}/{yearOfIssue}/{brand}/{carModel}/{rentalDayPrice}/{carClass}")
+    @GetMapping(path = "/")
+    public String getIndexPage() {
+        return "index";
+    }
+
+    @GetMapping(path = "/car_add/{registeredCarNumber}&{engineType}&{yearOfIssue}&{brand}&{carModel}&{rentalDayPrice}&{carClass}")
     public String getNextStep(Model model, @PathVariable String registeredCarNumber, @PathVariable String engineType,
                               @PathVariable int yearOfIssue, @PathVariable String brand,
                               @PathVariable String carModel, @PathVariable int rentalDayPrice,
                               @PathVariable Long carClass) {
         carAddService.add(registeredCarNumber, engineType, yearOfIssue,
                 brand, carModel, rentalDayPrice, carClass);
-        return "redirect:/index.jsp";
+        return "redirect:/hello";
     }
 }
