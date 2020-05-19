@@ -1,4 +1,4 @@
-package service.model;
+package dao.repository.model;
 
 import dao.entity.Car;
 import dao.entity.PickUpLocation;

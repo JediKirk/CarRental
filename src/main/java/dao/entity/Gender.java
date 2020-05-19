@@ -1,5 +1,5 @@
 package dao.entity;
 
-public enum Sex {
+public enum Gender {
     Male, Female, Undefined
 }

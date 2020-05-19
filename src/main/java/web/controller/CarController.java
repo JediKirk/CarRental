@@ -1,26 +1,33 @@
 package web.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import service.api.CarService;
-import service.model.CarDto;
+import dao.repository.model.CarDto;
 
 
-@RestController
+@Controller
 @RequiredArgsConstructor
 @RequestMapping("/cars")
 public class CarController {
 
     private final CarService carService;
-    private final IndexController indexController;
 
-    @PostMapping("/car_add")
-    public String createCar(@ModelAttribute CarDto dto){
-       carService.add(dto.getRegisteredCarNumber(),dto.getEngineType(),dto.getYearOfIssue(),
-              dto.getBrand(),dto.getModel(),dto.getRentalDayPrice(),dto.getCarClass());
-        return indexController.getIndexPage();
+    @PostMapping("/create-car")
+    public String createCar(@ModelAttribute CarDto dto) {
+        carService.create(dto);
+        return "redirect:http://localhost:8080/CarRental_war_exploded/";
     }
-  // car_add/?registeredCarNumber=4231&engineType=1&yearOfIssue=1&brand=1&carModel=1&rentalDayPrice=1&carClass=1
+
+    @GetMapping("/delete/{id}")
+    public String deleteCar(@PathVariable Long id) {
+        carService.deleteById(id);
+        return "index";
+    }
+}
+
+// car_add/?registeredCarNumber=4231&engineType=1&yearOfIssue=1&brand=1&carModel=1&rentalDayPrice=1&carClass=1
 //    @GetMapping(path = "/car_add/?registeredCarNumber={registeredCarNumber}&engineType={engineType}&yearOfIssue={yearOfIssue}&brand={brand}&carModel={carModel}&rentalDayPrice={rentalDayPrice}&carClass={carClass}")
 //    public String getNextStep(Model model, @PathVariable String registeredCarNumber, @PathVariable String engineType,
 //                              @PathVariable int yearOfIssue, @PathVariable String brand,
@@ -30,4 +37,4 @@ public class CarController {
 //                brand, carModel, rentalDayPrice, carClass);
 //        return "redirect:/hello";
 //    }
-}
+

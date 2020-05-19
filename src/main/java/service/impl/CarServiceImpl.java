@@ -1,10 +1,12 @@
 package service.impl;
 
 import dao.entity.Car;
-import dao.repository.CarRepository;
+import dao.repository.api.CarClassRepository;
+import dao.repository.api.CarRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import service.api.CarService;
+import dao.repository.model.CarDto;
 
 
 @RequiredArgsConstructor
@@ -12,12 +14,30 @@ import service.api.CarService;
 public class CarServiceImpl implements CarService {
 
     private final CarRepository carRepository;
+    private final CarClassRepository carClassRepository;
 
     @Override
-    public Car add(String registeredCarNumber, String engineType, int yearOfIssue,
-                   String brand, String model, int rentalDayPrice, Long carClass) {
-        return     carRepository.saveCar(registeredCarNumber, engineType, yearOfIssue,
-                brand, model, rentalDayPrice, carClass);
-
+    public Car create(CarDto carDto) {
+        Car car = convertDto(carDto);
+        car.setCarClass(carClassRepository.getCarClassById(carDto.getCarClass()));
+        return carRepository.saveCar(car);
     }
+
+    @Override
+    public String deleteById(Long id) {
+        return null;
+    }
+
+    private Car convertDto(CarDto carDto) {
+        Car car = new Car();
+        car.setRegisteredCarNumber(carDto.getRegisteredCarNumber());
+        car.setEngineType(carDto.getEngineType());
+        car.setYearOfIssue(carDto.getYearOfIssue());
+        car.setBrand(carDto.getBrand());
+        car.setModel(carDto.getModel());
+        car.setRentalDayPrice(carDto.getRentalDayPrice());
+        return car;
+    }
+
+
 }

@@ -1,4 +1,4 @@
-package service.model;
+package dao.repository.model;
 
 import dao.entity.Address;
 import dao.entity.User;

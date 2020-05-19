@@ -17,10 +17,9 @@ import org.springframework.web.servlet.view.JstlView;
 
 import java.util.Locale;
 
-
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = {"web.controller"})
+@ComponentScan(basePackages = {"web"})
 public class WebConfig implements WebMvcConfigurer {
 
     @Bean
@@ -31,7 +30,6 @@ public class WebConfig implements WebMvcConfigurer {
         bean.setSuffix(".jsp");
         return bean;
     }
-
 
     @Bean
     public MessageSource messageSource() {

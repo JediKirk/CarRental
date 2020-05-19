@@ -1,4 +1,4 @@
-package service.model;
+package dao.repository.model;
 
 import lombok.Data;
 
