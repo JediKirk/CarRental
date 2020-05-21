@@ -4,4 +4,5 @@ import dao.entity.User;
 
 public interface UserRepository {
     User saveNewUser(User user);
+    User findUserByPhoneNumber(Long phoneNumber);
 }

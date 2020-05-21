@@ -11,6 +11,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import service.api.RegistrationService;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
 @RequiredArgsConstructor
 @Service
 public class RegistrationServiceImpl implements RegistrationService {
@@ -36,17 +40,27 @@ public class RegistrationServiceImpl implements RegistrationService {
     @Override
     public UserDetails registrationDetails(UserDetailsDto userDetailsDto) {
         UserDetails userDetails = convertUserDetails(userDetailsDto);
-
-        return userDetailsRepository.saveUserDetails(userDetails);
+        userDetailsRepository.saveUserDetails(userDetails);
+        return userDetails;
     }
 
     private UserDetails convertUserDetails(UserDetailsDto userDetailsDto){
         UserDetails userDetails=new UserDetails();
         userDetails.setFirstName(userDetailsDto.getFirstName());
         userDetails.setSecondName(userDetailsDto.getSecondName());
-        userDetails.setDateOfBirth(userDetailsDto.getDateOfBirth());
-
+        userDetails.setDateOfBirth(convertLocalDate(userDetailsDto.getDateOfBirth()));
+        userDetails.setGender(userDetailsDto.getGender());
+        userDetails.setUser(userRepository.findUserByPhoneNumber(userDetailsDto.getPhoneNumber()));
+        userDetails.setAddress(userDetailsDto.getAddress());
         userDetails.setApartment(userDetailsDto.getApartment());
         return userDetails;
+    }
+
+    private LocalDate convertLocalDate(String localDate){
+        List<Integer> date=new ArrayList<>();
+        for(String retval : localDate.split("-")){
+            date.add(Integer.parseInt(retval));
+        }
+        return LocalDate.of(date.get(0),date.get(1),date.get(2));
     }
 }

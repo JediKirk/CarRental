@@ -1,5 +1,6 @@
 package dao.repository.impl;
 
+import dao.entity.CarClass;
 import dao.entity.User;
 import dao.repository.api.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -20,4 +21,12 @@ public class UserRepositoryImpl implements UserRepository {
                 .save(user);
         return user;
     }
+
+    @Override
+    @Transactional
+    public User findUserByPhoneNumber(Long phoneNumber) {
+        User user = sessionFactory.getCurrentSession().
+                get(User.class, phoneNumber);
+        return user;
+        }
 }

@@ -21,8 +21,8 @@ public class RegistrationController {
         registrationService.registration(userDto);
         return "redirect:http://localhost:8080/CarRental_war_exploded/";
     }
-    @PostMapping("/create-details-user")
-    public String createDetailsUser(@ModelAttribute UserDetailsDto userDetailsDto) {
+    @PostMapping("/create-user-details")
+    public String createUserDetails(@ModelAttribute UserDetailsDto userDetailsDto) {
         registrationService.registrationDetails(userDetailsDto);
         return "redirect:http://localhost:8080/CarRental_war_exploded/";
     }
