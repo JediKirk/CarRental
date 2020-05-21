@@ -1,6 +1,7 @@
 package dao.entity;
 
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -30,18 +31,4 @@ public class UserDetails extends BaseEntity {
 
     private String apartment;
 
-    @Column(name = "passport_id")
-    private String passportId;
-
-    @Column(name = "passport_date_of_issue")
-    private LocalDate passportDateOfIssue;
-
-    @Column(name = "passport_expiry_date")
-    private LocalDate passport_expiry_date;
-
-    @Column(name = "place_of_birthday")
-    private String placeOfBirthDay;
-
-    @Column(name = "country_of_residence")
-    private String countryOfResidence;
 }

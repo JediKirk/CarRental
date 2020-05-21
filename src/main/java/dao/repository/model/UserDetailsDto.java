@@ -14,9 +14,4 @@ public class UserDetailsDto {
     private User user;
     private Address address;
     private String apartment;
-    private String passportId;
-    private LocalDate passportDateOfIssue;
-    private LocalDate passport_expiry_date;
-    private String placeOfBirthDay;
-    private String countryOfResidence;
 }

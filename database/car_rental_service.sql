@@ -11,7 +11,7 @@ create table role
 create table user
 (
     id           bigint AUTO_INCREMENT not null,
-    phone_number int                   not null UNIQUE,
+    phone_number bigint                   not null UNIQUE,
     password     varchar(35)           not null,
     role_id      bigint                not null DEFAULT 2,
     constraint car_class_pk
@@ -32,11 +32,6 @@ create table user_details
     street                 varchar(30)           not null,
     building               varchar(5)            not null,
     apartment              varchar(3)            null,
-    passport_id            varchar(25)           not null,
-    passport_date_of_issue date                  not null,
-    passport_expiry_date   date                  not null,
-    place_of_birthday      varchar(30)           not null,
-    country_of_residence   varchar(30)           not null,
     constraint car_class_pk
         primary key (id),
     foreign key (user_id) references user (id)
