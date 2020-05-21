@@ -1,5 +1,6 @@
 package service.impl;
 
+import dao.entity.Address;
 import dao.entity.User;
 import dao.entity.UserDetails;
 import dao.repository.api.RoleRepository;
@@ -44,14 +45,19 @@ public class RegistrationServiceImpl implements RegistrationService {
         return userDetails;
     }
 
-    private UserDetails convertUserDetails(UserDetailsDto userDetailsDto){
-        UserDetails userDetails=new UserDetails();
+    private UserDetails convertUserDetails(UserDetailsDto userDetailsDto) {
+        UserDetails userDetails = new UserDetails();
         userDetails.setFirstName(userDetailsDto.getFirstName());
         userDetails.setSecondName(userDetailsDto.getSecondName());
         userDetails.setDateOfBirth(convertLocalDate(userDetailsDto.getDateOfBirth()));
         userDetails.setGender(userDetailsDto.getGender());
-        userDetails.setUser(userRepository.findUserByPhoneNumber(userDetailsDto.getPhoneNumber()));
-        userDetails.setAddress(userDetailsDto.getAddress());
+        userDetails.setUser(userRepository.findUserByPhoneNumber(userDetailsDto.getPhoneNumber()).get());
+        Address address = new Address();
+        address.setCountry(userDetailsDto.getCountry());
+        address.setCity(userDetailsDto.getCity());
+        address.setStreet(userDetailsDto.getStreet());
+        address.setBuilding(userDetailsDto.getBuilding());
+        userDetails.setAddress(address);
         userDetails.setApartment(userDetailsDto.getApartment());
         return userDetails;
     }

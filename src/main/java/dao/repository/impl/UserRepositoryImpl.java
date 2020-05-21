@@ -1,12 +1,13 @@
 package dao.repository.impl;
 
-import dao.entity.CarClass;
 import dao.entity.User;
 import dao.repository.api.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
@@ -24,9 +25,12 @@ public class UserRepositoryImpl implements UserRepository {
 
     @Override
     @Transactional
-    public User findUserByPhoneNumber(Long phoneNumber) {
-        User user = sessionFactory.getCurrentSession().
-                get(User.class, phoneNumber);
-        return user;
-        }
+    public Optional<User> findUserByPhoneNumber(Long phoneNumber) {
+        return sessionFactory.getCurrentSession()
+                .createQuery("from User where phoneNumber = :phone_number")
+                .setParameter("phone_number", phoneNumber)
+                .getResultList()
+                .stream()
+                .findFirst();
+    }
 }
