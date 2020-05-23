@@ -6,23 +6,30 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import service.api.CarService;
+import service.api.UserDetailsService;
 import service.api.UserService;
 
 import javax.servlet.http.HttpSession;
 
+
 @Controller
 @RequiredArgsConstructor
-public class JspController {
-    private final UserService userService;
+public class IndexController {
+    private final UserDetailsService userDetailsService;
+    private final CarService carService;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String welcomePage() {
+    public String welcomePage(Model model) {
+        model.addAttribute("cars", carService.showAllCars());
         return "index";
     }
 
     @GetMapping("/account-info")
     public String accountInfo(HttpSession httpSession, Model model) {
-        model.addAttribute("userInfo", userService.findUserDetailsByPhoneNumber(Long.parseLong(String.valueOf(httpSession.getAttribute("phoneNumber")))));
+        model.addAttribute("userInfo",
+                userDetailsService.findUserDetailsByPhoneNumber(Long.parseLong(String.valueOf(httpSession.getAttribute("phoneNumber")))));
         return "account-info";
     }
+
 }

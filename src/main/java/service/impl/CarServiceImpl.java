@@ -8,6 +8,9 @@ import org.springframework.stereotype.Service;
 import service.api.CarService;
 import dao.repository.model.CarDto;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 @RequiredArgsConstructor
 @Service
@@ -27,6 +30,14 @@ public class CarServiceImpl implements CarService {
     public String deleteById(Long id) {
         return null;
     }
+
+    @Override
+    public List<Car> showAllCars() {
+        return carRepository.findAll();
+    }
+
+
+
 
     private Car convertDto(CarDto carDto) {
         Car car = new Car();
