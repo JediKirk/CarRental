@@ -17,13 +17,7 @@ import javax.servlet.http.HttpSession;
 @RequiredArgsConstructor
 public class IndexController {
     private final UserDetailsService userDetailsService;
-    private final CarService carService;
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String welcomePage(Model model) {
-        model.addAttribute("cars", carService.showAllCars());
-        return "index";
-    }
 
     @GetMapping("/account-info")
     public String accountInfo(HttpSession httpSession, Model model) {

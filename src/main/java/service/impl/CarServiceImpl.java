@@ -36,7 +36,10 @@ public class CarServiceImpl implements CarService {
         return carRepository.findAll();
     }
 
-
+    @Override
+    public Car showCar(Long id) {
+        return carRepository.findById(id).get();
+    }
 
 
     private Car convertDto(CarDto carDto) {

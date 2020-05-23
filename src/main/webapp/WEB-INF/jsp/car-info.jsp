@@ -1,3 +1,8 @@
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="th" uri="http://www.springframework.org/tags/form" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,9 +29,9 @@
                 </div>
                 <div class="main__content__header--links">
                     <div class="links">
-                        <div class="button back"><a href="./index.html">&lsaquo;</a></div>
+                        <div class="button back"><a href="./index">&lsaquo;</a></div>
                         <div class="button register"><a href="./sign-up">Регистрация</a></div>
-                        <div class="button login"><a href="">Вход</a></div>
+                        <div class="button login"><a href="./sign-in">Вход</a></div>
                     </div>
                 </div>
             </div>
@@ -40,29 +45,24 @@
                             Бизнес
                         </div>
                         <div class="item__disciption--title">
-                            <a>Hyundai Genesis G80<br>
-                            <span class="subtitle--year">(2017 год)</span></a><br>
-                            <span class="subtitle--price"></span>Цена: от 170 р.</span>
+                            <a><c:out value="${car.brand}"/> <c:out value="${car.model}"/> <br>
+                            <span class="subtitle--year"><c:out value="${car.yearOfIssue}"/> год</span></a><br>
+                            <span class="subtitle--price"></span>Цена: от  <c:out value="${car.rentalDayPrice}"/> р.</span>
                         </div>
                         <button class="item__disciption--order">Забронировать</button>
                     </div>
                 </div>
                 <div class="main__content__list--info">
                     <ul class="full__info"><span class="title">Описание:</span>
-                        <li>Регистрационный номер: </li>
-                        <li>Тип двигателя: </li>
-                        <li>Год выпуска: </li>
-                        <li>Брэнд: </li>
-                        <li>Модель: </li>
-                        <li>Класс: </li>
-                        <li>Тип трансмиссии: </li>
-                        <li>Кондиционер: </li>
-                        <li>Цена: </li>
-                    </ul>
-                    <ul class="rent__info"><span class="title">Информация по аренде:</span>
-                        <li>Страна: </li>
-                        <li>Город: </li>
-                        <li>Адрес: </li>
+                        <li>Регистрационный номер:<c:out value="${car.registeredCarNumber}"/> </li>
+                        <li>Тип двигателя:<c:out value="${car.engineType}"/> </li>
+                        <li>Год выпуска:<c:out value="${car.yearOfIssue}"/> </li>
+                        <li>Брэнд: <c:out value="${car.brand}"/></li>
+                        <li>Модель:<c:out value="${car.model}"/> </li>
+                        <li>Класс:<c:out value="${car.carClass.carClass}"/> </li>
+                        <li>Тип трансмиссии: <c:out value="${car.carClass.transmissionType}"/></li>
+                        <li>Кондиционер:<c:out value="${car.carClass.airConditioning}"/> </li>
+                        <li>Цена: <c:out value="${car.rentalDayPrice}"/></li>
                     </ul>
                 </div>
                 

@@ -46,7 +46,7 @@
             <div class="main__content__header--links">
                 <div class="links">
                     <div class="button register"><a href="./sign-up">Регистрация</a></div>
-                    <div class="button login"><a href="/sign-in">Вход</a></div>
+                    <div class="button login"><a href="./sign-in">Вход</a></div>
                     <div class="button account"><a href="./account-info">Аккаунт</a></div>
                 </div>
                 <div class="filters">
@@ -66,7 +66,7 @@
                             <c:out value="${cars.get(j).carClass.carClass}"/>
                         </div>
                         <div class="item__disciption--title">
-                            <a href="./car_info.html">
+                            <a href="./car-info-${cars.get(j).id}">
                                 <c:out value="${cars.get(j).brand}"/> <c:out value="${cars.get(j).model}"/><br>
                                 <span class="subtitle--year">(<c:out value="${cars.get(j).yearOfIssue}"/> год)</span></a><br>
                             <span class="subtitle--price"></span>Цена: от <c:out value="${cars.get(j).rentalDayPrice}"/> р.</span>

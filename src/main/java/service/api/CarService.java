@@ -9,4 +9,6 @@ public interface CarService {
     Car create(CarDto carDto);
     String deleteById(Long id);
     List<Car> showAllCars();
+    Car showCar(Long id);
+
 }
