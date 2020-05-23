@@ -10,18 +10,19 @@ import dao.repository.model.UserDetailsDto;
 import dao.repository.model.UserDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import service.api.RegistrationService;
+import service.api.UserService;
 
 import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 
 @Service
 @Transactional
 @RequiredArgsConstructor
-public class RegistrationServiceImpl implements RegistrationService {
+public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
     private final UserDetailsRepository userDetailsRepository;
@@ -47,6 +48,15 @@ public class RegistrationServiceImpl implements RegistrationService {
         return userDetails;
     }
 
+
+
+    @Override
+    public UserDetails findUserDetailsByPhoneNumber(Long phoneNumber) {
+        return userRepository.findUserByPhoneNumber(phoneNumber).get().getUserDetails();
+
+    }
+
+
     protected UserDetails convertUserDetails(UserDetailsDto userDetailsDto) {
         UserDetails userDetails = new UserDetails();
         userDetails.setFirstName(userDetailsDto.getFirstName());
@@ -71,4 +81,8 @@ public class RegistrationServiceImpl implements RegistrationService {
         }
         return LocalDate.of(date.get(0), date.get(1), date.get(2));
     }
+
+
+
+
 }

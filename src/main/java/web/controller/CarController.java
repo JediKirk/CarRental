@@ -9,7 +9,7 @@ import dao.repository.model.CarDto;
 
 @Controller
 @RequiredArgsConstructor
-@RequestMapping("/cars")
+@RequestMapping("/admin/cars")
 public class CarController {
 
     private final CarService carService;
@@ -23,7 +23,7 @@ public class CarController {
     @GetMapping("/delete/{id}")
     public String deleteCar(@PathVariable Long id) {
         carService.deleteById(id);
-        return "index";
+        return "/WEB-INF/jsp/123.jsp";
     }
 }
 
