@@ -9,6 +9,5 @@ import java.util.Optional;
 
 public interface UserService {
     User registration(UserDto userDto);
-    UserDetails registrationDetails(UserDetailsDto userDetailsDto);
-    UserDetails findUserDetailsByPhoneNumber(Long phoneNumber);
+    boolean signIn(UserDto userDto);
 }
