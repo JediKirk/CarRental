@@ -49,13 +49,6 @@
                     <div class="button login"><a href="./sign-in">Вход</a></div>
                     <div class="button account"><a href="./account-info">Аккаунт</a></div>
                 </div>
-                <div class="filters">
-                    <ul>
-                        <li class="item background"><a href="">ЭКОНОМ</a></li>
-                        <li class="item background"><a href="">СРЕДНИЙ</a></li>
-                        <li class="item background"><a href="">БИЗНЕС</a></li>
-                    </ul>
-                </div>
             </div>
         </div>
         <div class="main__content__list">
