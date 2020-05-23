@@ -9,17 +9,27 @@ import dao.repository.api.UserRepository;
 import dao.repository.model.UserDetailsDto;
 import dao.repository.model.UserDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import service.api.RegistrationService;
 
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-@RequiredArgsConstructor
-@Service
-public class RegistrationServiceImpl implements RegistrationService {
 
+@Service
+@Repository
+@Transactional
+@RequiredArgsConstructor
+public class RegistrationServiceImpl implements RegistrationService {
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
     private final UserDetailsRepository userDetailsRepository;
@@ -27,7 +37,7 @@ public class RegistrationServiceImpl implements RegistrationService {
     @Override
     public User registration(UserDto userDto) {
         User user = convertUser(userDto);
-        user.setRole(roleRepository.getRoleById(2l));
+        user.setRole(roleRepository.findById(2l).get());
         return userRepository.saveNewUser(user);
     }
 
@@ -45,7 +55,7 @@ public class RegistrationServiceImpl implements RegistrationService {
         return userDetails;
     }
 
-     UserDetails convertUserDetails(UserDetailsDto userDetailsDto) {
+    protected UserDetails convertUserDetails(UserDetailsDto userDetailsDto) {
         UserDetails userDetails = new UserDetails();
         userDetails.setFirstName(userDetailsDto.getFirstName());
         userDetails.setSecondName(userDetailsDto.getSecondName());
