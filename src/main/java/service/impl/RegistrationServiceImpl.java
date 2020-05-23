@@ -9,16 +9,9 @@ import dao.repository.api.UserRepository;
 import dao.repository.model.UserDetailsDto;
 import dao.repository.model.UserDto;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import service.api.RegistrationService;
 
-
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -26,7 +19,6 @@ import java.util.List;
 
 
 @Service
-@Repository
 @Transactional
 @RequiredArgsConstructor
 public class RegistrationServiceImpl implements RegistrationService {
@@ -38,10 +30,10 @@ public class RegistrationServiceImpl implements RegistrationService {
     public User registration(UserDto userDto) {
         User user = convertUser(userDto);
         user.setRole(roleRepository.findById(2l).get());
-        return userRepository.saveNewUser(user);
+        return userRepository.save(user);
     }
 
-     User convertUser(UserDto userDto) {
+    User convertUser(UserDto userDto) {
         User user = new User();
         user.setPhoneNumber(userDto.getPhoneNumber());
         user.setPassword(userDto.getPassword());
@@ -51,7 +43,7 @@ public class RegistrationServiceImpl implements RegistrationService {
     @Override
     public UserDetails registrationDetails(UserDetailsDto userDetailsDto) {
         UserDetails userDetails = convertUserDetails(userDetailsDto);
-        userDetailsRepository.saveUserDetails(userDetails);
+        userDetailsRepository.save(userDetails);
         return userDetails;
     }
 
@@ -72,11 +64,11 @@ public class RegistrationServiceImpl implements RegistrationService {
         return userDetails;
     }
 
-    private LocalDate convertLocalDate(String localDate){
-        List<Integer> date=new ArrayList<>();
-        for(String retval : localDate.split("-")){
+    private LocalDate convertLocalDate(String localDate) {
+        List<Integer> date = new ArrayList<>();
+        for (String retval : localDate.split("-")) {
             date.add(Integer.parseInt(retval));
         }
-        return LocalDate.of(date.get(0),date.get(1),date.get(2));
+        return LocalDate.of(date.get(0), date.get(1), date.get(2));
     }
 }

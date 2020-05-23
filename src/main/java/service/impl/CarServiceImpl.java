@@ -19,8 +19,8 @@ public class CarServiceImpl implements CarService {
     @Override
     public Car create(CarDto carDto) {
         Car car = convertDto(carDto);
-        car.setCarClass(carClassRepository.getCarClassById(carDto.getCarClass()));
-        return carRepository.saveCar(car);
+        car.setCarClass(carClassRepository.findById(carDto.getCarClass()).get());
+        return carRepository.save(car);
     }
 
     @Override
