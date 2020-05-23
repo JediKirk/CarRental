@@ -27,14 +27,5 @@ public class CarController {
     }
 }
 
-// car_add/?registeredCarNumber=4231&engineType=1&yearOfIssue=1&brand=1&carModel=1&rentalDayPrice=1&carClass=1
-//    @GetMapping(path = "/car_add/?registeredCarNumber={registeredCarNumber}&engineType={engineType}&yearOfIssue={yearOfIssue}&brand={brand}&carModel={carModel}&rentalDayPrice={rentalDayPrice}&carClass={carClass}")
-//    public String getNextStep(Model model, @PathVariable String registeredCarNumber, @PathVariable String engineType,
-//                              @PathVariable int yearOfIssue, @PathVariable String brand,
-//                              @PathVariable String carModel, @PathVariable int rentalDayPrice,
-//                              @PathVariable Long carClass) {
-//        carAddService.add(registeredCarNumber, engineType, yearOfIssue,
-//                brand, carModel, rentalDayPrice, carClass);
-//        return "redirect:/hello";
-//    }
+
 

@@ -8,8 +8,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class JspController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String welcomePage() {
+        return "sign-up";
+    }
+
+    @RequestMapping(value = "/sign-up", method = RequestMethod.GET)
     public String signUp() {
         return "sign-up";
+    }
+
+    @RequestMapping(value = "/sign-in", method = RequestMethod.GET)
+    public String signInPage() {
+        return "sign-in";
     }
 
     @RequestMapping(value = "/full-sign-up", method = RequestMethod.GET)

@@ -31,7 +31,7 @@ public class RegistrationServiceImpl implements RegistrationService {
         return userRepository.saveNewUser(user);
     }
 
-    private User convertUser(UserDto userDto) {
+     User convertUser(UserDto userDto) {
         User user = new User();
         user.setPhoneNumber(userDto.getPhoneNumber());
         user.setPassword(userDto.getPassword());
@@ -45,7 +45,7 @@ public class RegistrationServiceImpl implements RegistrationService {
         return userDetails;
     }
 
-    private UserDetails convertUserDetails(UserDetailsDto userDetailsDto) {
+     UserDetails convertUserDetails(UserDetailsDto userDetailsDto) {
         UserDetails userDetails = new UserDetails();
         userDetails.setFirstName(userDetailsDto.getFirstName());
         userDetails.setSecondName(userDetailsDto.getSecondName());

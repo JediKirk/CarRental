@@ -3,6 +3,7 @@ package dao.repository.impl;
 import dao.entity.User;
 import dao.repository.api.UserRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,11 +23,11 @@ public class UserRepositoryImpl implements UserRepository {
                 .save(user);
         return user;
     }
-
+    @SneakyThrows
     @Override
     @Transactional
     public Optional<User> findUserByPhoneNumber(Long phoneNumber) {
-        return sessionFactory.getCurrentSession()
+        return (Optional<User>) sessionFactory.getCurrentSession()
                 .createQuery("from User where phoneNumber = :phone_number")
                 .setParameter("phone_number", phoneNumber)
                 .getResultList()
