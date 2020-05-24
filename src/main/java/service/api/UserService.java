@@ -9,5 +9,6 @@ import java.util.Optional;
 
 public interface UserService {
     User registration(UserDto userDto);
+
     boolean signIn(UserDto userDto);
 }

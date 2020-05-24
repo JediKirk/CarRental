@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.*;
 import service.api.CarService;
 import dao.repository.model.CarDto;
 
-
 @Controller
 @RequiredArgsConstructor
 @RequestMapping("/admin")
@@ -28,8 +27,8 @@ public class AdminController {
     }
 
     @GetMapping(path = "/admin-car-info-{j}")
-    public String carAdminInfo(Model model, @PathVariable Long j){
-        model.addAttribute("car",carService.showCar(j));
+    public String carAdminInfo(Model model, @PathVariable Long j) {
+        model.addAttribute("car", carService.showCar(j));
         return "forward:/car-info";
     }
 

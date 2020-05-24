@@ -46,6 +46,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     }
 
     private final UserDetailsRepository userDetailsRepository;
+
     @Override
     public UserDetails registrationDetails(UserDetailsDto userDetailsDto) {
         UserDetails userDetails = convertUserDetails(userDetailsDto);
