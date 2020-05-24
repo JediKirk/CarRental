@@ -37,4 +37,6 @@ public class CarController {
         model.addAttribute("cars", carService.showAllCars());
         return "admin-panel";
     }
+
+
 }
