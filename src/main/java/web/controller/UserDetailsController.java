@@ -11,19 +11,22 @@ import service.api.UserDetailsService;
 import service.api.UserService;
 
 import javax.servlet.http.HttpSession;
+import java.util.Optional;
 
 
 @Controller
 @RequiredArgsConstructor
-public class IndexController {
+public class UserDetailsController {
     private final UserDetailsService userDetailsService;
-
 
     @GetMapping("/account-info")
     public String accountInfo(HttpSession httpSession, Model model) {
-        model.addAttribute("userInfo",
-                userDetailsService.findUserDetailsByPhoneNumber(Long.parseLong(String.valueOf(httpSession.getAttribute("phoneNumber")))));
-        return "account-info";
+        Optional<Object> phoneNumber = Optional.ofNullable(httpSession.getAttribute("phoneNumber"));
+        if (phoneNumber.isPresent()) {
+            model.addAttribute("userInfo", userDetailsService.findUserDetailsByPhoneNumber(Long.parseLong(String.valueOf(httpSession.getAttribute("phoneNumber")))));
+            return "account-info";
+        } else {
+            return "sign-in";
+        }
     }
-
 }
