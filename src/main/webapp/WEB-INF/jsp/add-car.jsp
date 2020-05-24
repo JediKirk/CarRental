@@ -36,7 +36,7 @@
                 </div>
             </div>
             <div class="main__content--register">
-                <form action="/CarRental_war_exploded/admin/cars/create-car" method="post">
+                <form action="/CarRental_war_exploded/admin/create-car" method="post">
                     <div class="container">
                         <p>Заполните все поля, необходимые для добавления.</p>
                         <hr>
@@ -58,11 +58,11 @@
                         <input type="text" placeholder="Введите модель автомобиля" name="model" autocomplete="text">
 
                         <label><b>Класс</b></label><br>
-                        <input type="radio" value="3" name="gender" id="eco"><label for="eco">
+                        <input type="radio" value="3" name="carClass" id="eco"><label for="eco">
                             Эконом</label><br>
-                        <input type="radio" value="2" name="gender" id="mid"><label for="mid">
+                        <input type="radio" value="2" name="carClass" id="mid"><label for="mid">
                             Средний</label><br>
-                        <input type="radio" value="1" name="gender" id="busi"><label for="busi"> Бизнес
+                        <input type="radio" value="1" name="carClass" id="busi"><label for="busi"> Бизнес
                         </label><br><br>
 
                         <label><b>Цена</b></label>
