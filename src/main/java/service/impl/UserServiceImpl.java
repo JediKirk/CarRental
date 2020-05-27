@@ -5,6 +5,7 @@ import dao.repository.api.RoleRepository;
 import dao.repository.api.UserRepository;
 import dao.repository.model.UserDto;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j;
 import org.apache.log4j.Logger;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -21,9 +22,8 @@ import java.util.Optional;
 @Service
 @Transactional
 @RequiredArgsConstructor
+@Log4j
 public class UserServiceImpl implements UserService, UserDetailsService {
-
-    private static final Logger log = Logger.getLogger(Logger.class);
 
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;

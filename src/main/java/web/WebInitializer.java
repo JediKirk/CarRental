@@ -5,7 +5,6 @@ import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.DispatcherServlet;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 import service.config.ServiceConfig;
-import web.config.SecurityConfig;
 import web.config.WebConfig;
 
 import javax.servlet.*;
@@ -14,7 +13,7 @@ import javax.servlet.*;
 public class WebInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[]{ServiceConfig.class, SecurityConfig.class};
+        return new Class[]{ServiceConfig.class};
     }
 
     @Override
