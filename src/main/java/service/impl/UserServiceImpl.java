@@ -61,6 +61,6 @@ public class UserServiceImpl implements UserService, UserDetailsService {
                 .orElseThrow(() -> new UsernameNotFoundException("Can't find user by provided name!"));
 
         return new org.springframework.security.core.userdetails.User(loadedUser.getPhoneNumber(), loadedUser.getPassword(),
-                Collections.singletonList(new SimpleGrantedAuthority(loadedUser.getRole().getAccessRight())));
+                Collections.singletonList(new SimpleGrantedAuthority(loadedUser.getRole().getAccessRight().toString())));
     }
 }

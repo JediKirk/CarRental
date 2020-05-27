@@ -13,6 +13,7 @@ import javax.persistence.*;
 @Cache(usage = CacheConcurrencyStrategy.READ_ONLY, region = "my-cache")
 public class Role extends BaseEntity {
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "access_right")
-    private String accessRight;
+    private AccessRight accessRight;
 }
