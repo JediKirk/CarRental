@@ -67,7 +67,7 @@
                                         value="${cars.get(j).rentalDayPrice}"/>
                                     р.</span>
                                 </div>
-                                <form action="./admin/delete/${cars.get(j).id}">
+                                <form action="./delete/${cars.get(j).id}">
                                     <button class="item__disciption--order">Удалить</button>
                                 </form>
                             </div>

@@ -12,6 +12,8 @@
     <title>Document</title>
     <script type="text/javascript"><%@include file="/WEB-INF/script/reg.js"%></script>
     <style><%@include file="/WEB-INF/css/style.css"%></style>
+
+
 </head>
 <body>
 <section class="section__outer section__inner">
@@ -28,7 +30,6 @@
         </div>
         <div class="main__content__list">
             <div class="item__image personal">
-                <img src="img/def_icon.png" alt="car-image">
             </div>
             <div class="main__content__list--info">
                 <ul class="full__info"><span class="title">Ваши данные:</span>

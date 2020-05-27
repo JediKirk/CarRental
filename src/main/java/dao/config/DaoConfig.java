@@ -1,7 +1,6 @@
 package dao.config;
 
 import javax.sql.DataSource;
-import javax.swing.text.html.parser.Entity;
 
 import org.hibernate.SessionFactory;
 import org.springframework.context.annotation.Bean;
@@ -56,4 +55,6 @@ public class DaoConfig {
         manager.setSessionFactory(sessionFactory);
         return manager;
     }
+
+
 }

@@ -10,7 +10,6 @@ import javax.persistence.*;
 @Table(name = "role")
 public class Role extends BaseEntity {
 
-    @Enumerated(EnumType.STRING)
     @Column(name = "access_right")
-    private AccessRight accessRight;
+    private String accessRight;
 }

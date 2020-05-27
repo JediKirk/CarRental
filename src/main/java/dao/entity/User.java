@@ -17,7 +17,7 @@ public class User extends BaseEntity {
     private List<RentalInformation> rentalInformation;
 
     @Column(name = "phone_number")
-    private Long phoneNumber;
+    private String phoneNumber;
 
     @Column
     private String password;

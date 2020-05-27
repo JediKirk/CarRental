@@ -55,7 +55,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     }
 
     @Override
-    public UserDetails findUserDetailsByPhoneNumber(Long phoneNumber) {
+    public UserDetails findUserDetailsByPhoneNumber(String phoneNumber) {
         return userRepository.findUserByPhoneNumber(phoneNumber).get().getUserDetails();
 
     }

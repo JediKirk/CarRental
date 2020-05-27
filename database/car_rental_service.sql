@@ -11,7 +11,7 @@ create table role
 create table user
 (
     id           bigint AUTO_INCREMENT not null,
-    phone_number bigint                   not null UNIQUE,
+    phone_number varchar(15)                   not null UNIQUE,
     password     varchar(35)           not null,
     role_id      bigint                not null DEFAULT 2,
     constraint car_class_pk
@@ -109,5 +109,5 @@ VALUES (1, 'Business', 'Auto', true),
        (2, 'Middle', 'Auto', true),
        (3, 'Economy', 'Manual', false);
 INSERT INTO role (id, access_right)
-VALUES (1, 'Admin'),
-       (2, 'User');
+VALUES (1, 'ADMIN'),
+       (2, 'USER');

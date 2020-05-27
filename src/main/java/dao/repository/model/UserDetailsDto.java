@@ -11,7 +11,7 @@ public class UserDetailsDto {
     private String secondName;
     private String dateOfBirth;
     private Gender gender;
-    private Long phoneNumber;
+    private String phoneNumber;
     private Address address;
     private String country;
     private String city;

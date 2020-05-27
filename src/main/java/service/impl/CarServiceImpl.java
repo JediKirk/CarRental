@@ -4,6 +4,8 @@ import dao.entity.Car;
 import dao.repository.api.CarClassRepository;
 import dao.repository.api.CarRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import service.api.CarService;
 import dao.repository.model.CarDto;
@@ -52,6 +54,7 @@ public class CarServiceImpl implements CarService {
         car.setRentalDayPrice(carDto.getRentalDayPrice());
         return car;
     }
+
 
 
 }

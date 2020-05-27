@@ -11,10 +11,10 @@ import java.time.LocalDate;
 public class RentalInformationDto {
 
     private LocalDate dateOfIssue;
-    private int rentalTime;
+    private Integer rentalTime;
     private LocalDate returnDate;
     private Car carId;
     private User user;
-    private int rentalPrice;
+    private Integer rentalPrice;
     private PickUpLocation pickUpLocationId;
 }

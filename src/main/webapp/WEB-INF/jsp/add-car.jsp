@@ -32,7 +32,7 @@
             </div>
             <div class="main__content__header--links">
                 <div class="links">
-                    <div class="button back"><a href="./">&lsaquo;</a></div>
+                    <div class="button back"><a href="./admin-panel">&lsaquo;</a></div>
                 </div>
             </div>
         </div>
@@ -47,7 +47,7 @@
                             <div class="main__content__list--item">
                                 <div class="item__disciption">
                                     <div class="item__disciption--class">
-                                        <c:out value="${binding.get(j).defaultMessage}"/>
+                                        <c:out value="${binding.get(binding.size()-1-j).defaultMessage}"/>
                                     </div>
                                 </div>
                             </div>

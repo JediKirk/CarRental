@@ -42,7 +42,7 @@
                             <span class="subtitle--year">(<c:out value="${car.yearOfIssue}"/> год)</span></a><br>
                         <span class="subtitle--price"></span>Цена: от <c:out value="${car.rentalDayPrice}"/> р.</span>
                     </div>
-                    <form action="./admin/delete/${car.id}">
+                    <form action="./delete/${car.id}">
                         <button class="item__disciption--order">Удалить</button>
                     </form>
                 </div>

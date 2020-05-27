@@ -14,7 +14,7 @@ public class RentalInformation extends BaseEntity {
     private LocalDate dateOfIssue;
 
     @Column(name = "rental_time")
-    private int rentalTime;
+    private Integer rentalTime;
 
     @Column(name = "return_date")
     private LocalDate returnDate;
@@ -28,7 +28,7 @@ public class RentalInformation extends BaseEntity {
     private User user;
 
     @Column(name = "rental_price")
-    private int rentalPrice;
+    private Integer rentalPrice;
 
     @ManyToOne
     @JoinColumn(name = "pick_up_location_id")

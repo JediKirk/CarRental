@@ -19,7 +19,7 @@ public class Car extends BaseEntity {
     private String engineType;
 
     @Column(name = "year_of_issue")
-    private int yearOfIssue;
+    private Integer yearOfIssue;
 
     @Column
     private String brand;
@@ -28,7 +28,7 @@ public class Car extends BaseEntity {
     private String model;
 
     @Column(name = "rental_day_price")
-    private int rentalDayPrice;
+    private Integer rentalDayPrice;
 
     @ManyToOne
     @JoinColumn(name = "car_class_id")

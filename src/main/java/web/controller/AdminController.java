@@ -10,6 +10,7 @@ import service.api.CarService;
 import dao.repository.model.CarDto;
 
 import javax.validation.Valid;
+import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -26,10 +27,15 @@ public class AdminController {
             carService.create(carDto);
             return "redirect:http://localhost:8080/CarRental_war_exploded/admin-panel";
         } else {
-            fieldErrors.get(0).getDefaultMessage();
             model.addAttribute("binding",fieldErrors);
             return "add-car";
         }
+    }
+
+    @GetMapping(path = "/admin-car-info-{j}")
+    public String adminCarInfo(Model model, @PathVariable Long j) {
+        model.addAttribute("car", carService.showCar(j));
+        return "forward:/admin-car-info";
     }
 
     @GetMapping("/delete/{id}")
@@ -38,8 +44,11 @@ public class AdminController {
         return "redirect:http://localhost:8080/CarRental_war_exploded/admin-panel";
     }
 
-
-
+    @GetMapping("/admin-panel")
+    public String adminPage(Model model) {
+        model.addAttribute("cars", carService.showAllCars());
+        return "admin-panel";
+    }
 }
 
 

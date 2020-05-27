@@ -27,6 +27,7 @@
             </div>
         </div>
         <div class="main__content--register">
+            <c:url value="/j_spring_security_check" var="loginUrl" />
             <form action="/CarRental_war_exploded/registration/sign-in" method="post" >
                 <div class="container">
                     <p>Заполните все поля для входа.</p>

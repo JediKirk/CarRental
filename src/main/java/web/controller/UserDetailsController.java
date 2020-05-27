@@ -19,7 +19,7 @@ public class UserDetailsController {
     public String accountInfo(HttpSession httpSession, Model model) {
         Optional<Object> phoneNumber = Optional.ofNullable(httpSession.getAttribute("phoneNumber"));
         if (phoneNumber.isPresent()) {
-            model.addAttribute("userInfo", userDetailsService.findUserDetailsByPhoneNumber(Long.parseLong(String.valueOf(httpSession.getAttribute("phoneNumber")))));
+            model.addAttribute("userInfo", userDetailsService.findUserDetailsByPhoneNumber((String.valueOf(httpSession.getAttribute("phoneNumber")))));
             return "account-info";
         } else {
             return "sign-in";
