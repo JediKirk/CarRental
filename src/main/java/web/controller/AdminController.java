@@ -10,7 +10,6 @@ import service.api.CarService;
 import dao.repository.model.CarDto;
 
 import javax.validation.Valid;
-import java.util.Collections;
 import java.util.List;
 
 @Controller

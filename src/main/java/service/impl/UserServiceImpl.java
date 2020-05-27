@@ -5,6 +5,7 @@ import dao.repository.api.RoleRepository;
 import dao.repository.api.UserRepository;
 import dao.repository.model.UserDto;
 import lombok.RequiredArgsConstructor;
+import org.apache.log4j.Logger;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -21,6 +22,9 @@ import java.util.Optional;
 @Transactional
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService, UserDetailsService {
+
+    private static final Logger log = Logger.getLogger(Logger.class);
+
     private final UserRepository userRepository;
     private final RoleRepository roleRepository;
 
@@ -29,11 +33,13 @@ public class UserServiceImpl implements UserService, UserDetailsService {
     public User registration(UserDto userDto) {
         User user = convertUser(userDto);
         user.setRole(roleRepository.findById(2l).get());
+        log.info(String.format("User with phone '%s' add",userDto.getPhoneNumber() ));
         return userRepository.save(user);
     }
 
     @Override
     public boolean signIn(UserDto userDto) {
+        log.info(String.format("User with phone '%s' sign-in",userDto.getPhoneNumber() ));
         Optional<User> user = userRepository.findUserByPhoneNumber(userDto.getPhoneNumber());
         if (user.isPresent()) {
             return user.get().getPassword().equals(userDto.getPassword());
