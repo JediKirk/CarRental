@@ -83,6 +83,12 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql-connector-java.version}</version>
         </dependency>
+        <!-- hibernate-cache -->
+        <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-ehcache</artifactId>
+        <version>${hibernate-core.version}</version>
+    </dependency>
         <!-- validation -->
         <dependency>
             <groupId>javax.validation</groupId>
