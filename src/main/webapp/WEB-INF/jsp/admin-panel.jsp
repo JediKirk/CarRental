@@ -74,7 +74,7 @@
                         </div>
                     </c:forEach>
                     <c:forEach var="j" begin="0" end="${totalPages-1}" step="1">
-                        <div class="button account"><a href="./?page=${j}">${j+1}</a></div>
+                        <div class="button account"><a href="./admin-panel?page=${j}">${j+1}</a></div>
                     </c:forEach>
                 </c:when>
                 <c:otherwise>

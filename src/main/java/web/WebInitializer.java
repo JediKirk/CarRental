@@ -6,7 +6,7 @@ import service.config.ServiceConfig;
 import web.config.SecurityConfig;
 import web.config.WebConfig;
 
-import javax.servlet.*;
+import javax.servlet.Filter;
 
 
 public class WebInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {

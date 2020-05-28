@@ -43,10 +43,10 @@
                     <hr>
 
                     <label><b>Ваше Имя</b></label>
-                    <input type="text" placeholder="Введите имя" name="firstName" >
+                    <input type="text" placeholder="Введите имя" name="firstName">
 
                     <label><b>Фамилия</b></label>
-                    <input type="text" placeholder="Введите фамилию" name="secondName" >
+                    <input type="text" placeholder="Введите фамилию" name="secondName">
 
                     <label><b>Год рождения</b></label>
                     <input id="date-mask" type="date" placeholder="Введите год рождения" name="dateOfBirth"
@@ -59,16 +59,16 @@
                     <hr>
 
                     <label><b>Страна</b></label>
-                    <input type="text" placeholder="Введите страну" name="country" >
+                    <input type="text" placeholder="Введите страну" name="country">
 
                     <label><b>Город</b></label>
                     <input type="text" placeholder="Введите город" name="city">
 
                     <label><b>Улица</b></label>
-                    <input type="text" placeholder="Введите улицу" name="street" >
+                    <input type="text" placeholder="Введите улицу" name="street">
 
                     <label><b>Дом</b></label>
-                    <input type="text" placeholder="Введите дом" name="building" >
+                    <input type="text" placeholder="Введите дом" name="building">
 
                     <label><b>Квартира</b></label>
                     <input type="text" placeholder="Введите квартиру" name="apartment">

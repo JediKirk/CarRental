@@ -1,7 +1,7 @@
 package web.controller;
 
 
-import dao.repository.model.UserDto;
+import dao.repository.model.CarDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,10 +9,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
 import service.api.CarService;
-import dao.repository.model.CarDto;
 import service.api.UserService;
 
-import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.List;
 

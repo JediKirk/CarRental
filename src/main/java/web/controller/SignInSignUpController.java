@@ -19,7 +19,6 @@ import javax.servlet.http.HttpSession;
 public class SignInSignUpController {
 
 
-
     private final UserService userService;
     private final UserDetailsService userDetailsService;
     private final PasswordEncoder passwordEncoder;

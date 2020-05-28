@@ -6,8 +6,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import service.api.CarService;
 
-import java.util.stream.IntStream;
-
 
 @Controller
 @RequiredArgsConstructor

@@ -15,7 +15,7 @@ public class UserDetailsController {
 
     @GetMapping("/account-info")
     public String accountInfo(Model model, Principal principal) {
-            model.addAttribute("userInfo", userDetailsService.findUserDetailsByPhoneNumber(principal.getName()));
-            return "account-info";
+        model.addAttribute("userInfo", userDetailsService.findUserDetailsByPhoneNumber(principal.getName()));
+        return "account-info";
     }
 }

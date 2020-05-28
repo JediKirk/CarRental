@@ -3,16 +3,12 @@ package service.impl;
 import dao.entity.Car;
 import dao.repository.api.CarClassRepository;
 import dao.repository.api.CarRepository;
+import dao.repository.model.CarDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import service.api.CarService;
-import dao.repository.model.CarDto;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 @RequiredArgsConstructor
@@ -35,7 +31,7 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public Page<Car> showAllCars(int page,int size) {
+    public Page<Car> showAllCars(int page, int size) {
         return carRepository.findAll(PageRequest.of(page, size));
     }
 
@@ -61,7 +57,6 @@ public class CarServiceImpl implements CarService {
         car.setRentalDayPrice(carDto.getRentalDayPrice());
         return car;
     }
-
 
 
 }

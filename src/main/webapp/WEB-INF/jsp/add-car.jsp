@@ -42,17 +42,17 @@
                     <p>Заполните все поля, необходимые для добавления.</p>
                     <hr>
                     <c:choose>
-                    <c:when test="${binding.size() > 0}">
-                        <c:forEach var="j" begin="0" end="${binding.size()-1}" step="1">
-                            <div class="main__content__list--item">
-                                <div class="item__disciption">
-                                    <div class="item__disciption--class">
-                                        <c:out value="${binding.get(binding.size()-1-j).defaultMessage}"/>
+                        <c:when test="${binding.size() > 0}">
+                            <c:forEach var="j" begin="0" end="${binding.size()-1}" step="1">
+                                <div class="main__content__list--item">
+                                    <div class="item__disciption">
+                                        <div class="item__disciption--class">
+                                            <c:out value="${binding.get(binding.size()-1-j).defaultMessage}"/>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </c:forEach>
-                    </c:when>
+                            </c:forEach>
+                        </c:when>
                     </c:choose>
                     <label><b>Регистрационный номер</b></label>
                     <input type="text" placeholder="Введите номер автомобиля" name="registeredCarNumber"
