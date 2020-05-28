@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/style.css">
     <title>Document</title>
     <script type="text/javascript"><%@include file="/WEB-INF/script/reg.js"%></script>
-    <style><%@include file="/WEB-INF/css/style.css"%></style>
+    <style><%@include file="/css/style.css"%></style>
 </head>
 <body>
 <section class="section__outer section__inner">

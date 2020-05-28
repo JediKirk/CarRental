@@ -15,7 +15,7 @@
     </script>
 
     <style>
-        <%@include file="/WEB-INF/css/style.css"%>
+        <%@include file="/css/style.css"%>
     </style>
 </head>
 <body>
