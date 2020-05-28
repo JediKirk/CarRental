@@ -6,6 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import service.api.CarService;
 
+import java.util.stream.IntStream;
+
 
 @Controller
 @RequiredArgsConstructor
@@ -19,10 +21,12 @@ public class CarController {
     }
 
 
-
     @RequestMapping(value = "/", method = RequestMethod.GET)
-    public String indexPage(Model model) {
-        model.addAttribute("cars", carService.showAllCars());
+    public String indexPage(Model model,
+                            @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
+                            @RequestParam(value = "size", required = false, defaultValue = "9") Integer size) {
+        model.addAttribute("cars", carService.showAllCars(page, size).getContent());
+        model.addAttribute("totalPages", carService.showAllCars(page, size).getTotalPages());
         return "index";
     }
 

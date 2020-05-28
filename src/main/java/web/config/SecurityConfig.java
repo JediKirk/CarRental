@@ -5,7 +5,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
-import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -24,7 +23,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/css/**","/", "/sign-up", "/sign-in", "/car-info/**","/full-sign-up")
+                .antMatchers("/css/**","/", "/sign-up", "/sign-in", "/car-info/**","/full-sign-up", "/registration/sign-up")
                 .permitAll()
                 .antMatchers("/admin-panel", "/admin-car-info/**", "/create-car", "/delete/**","/add-car")
                 .hasAuthority("ADMIN")
@@ -51,7 +50,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable();
 
         http.userDetailsService(userDetailsService);
-
     }
 
     @Bean

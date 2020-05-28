@@ -49,11 +49,13 @@ public class AdminController {
     }
 
     @GetMapping("/admin-panel")
-    public String adminPage(Model model) {
-        model.addAttribute("cars", carService.showAllCars());
+    public String adminPage(Model model,
+                            @RequestParam(value = "page", required = false, defaultValue = "0") Integer page,
+                            @RequestParam(value = "size", required = false, defaultValue = "9") Integer size) {
+        model.addAttribute("cars", carService.showAllCars(page, size).getContent());
+        model.addAttribute("totalPages", carService.showAllCars(page, size).getTotalPages());
         return "admin-panel";
     }
-
 
 
 }

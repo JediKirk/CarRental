@@ -5,6 +5,7 @@ import dao.repository.api.CarClassRepository;
 import dao.repository.api.CarRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import service.api.CarService;
@@ -34,9 +35,15 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public List<Car> showAllCars() {
-        return carRepository.findAll();
+    public Page<Car> showAllCars(int page,int size) {
+        return carRepository.findAll(PageRequest.of(page, size));
     }
+
+//    @Override
+//    public List<Car> showAllCars() {
+//        return carRepository.findAll();
+//    }
+
 
     @Override
     public Car showCar(Long id) {

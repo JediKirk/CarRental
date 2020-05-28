@@ -27,7 +27,7 @@
             </div>
             <div class="main__content__header--links">
                 <div class="links">
-                    <div class="button back"><a href="./admin-panel">&lsaquo;</a></div>
+                    <div class="button back"><a href="/CarRental_war_exploded/admin-panel">&lsaquo;</a></div>
                 </div>
             </div>
         </div>
@@ -42,7 +42,7 @@
                             <span class="subtitle--year">(<c:out value="${car.yearOfIssue}"/> год)</span></a><br>
                         <span class="subtitle--price"></span>Цена: от <c:out value="${car.rentalDayPrice}"/> р.</span>
                     </div>
-                    <form action="./delete/${car.id}">
+                    <form action="/CarRental_war_exploded/delete/${car.id}">
                         <button class="item__disciption--order">Удалить</button>
                     </form>
                 </div>
