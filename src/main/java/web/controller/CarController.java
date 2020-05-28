@@ -12,7 +12,7 @@ import service.api.CarService;
 public class CarController {
     private final CarService carService;
 
-    @GetMapping(path = "/car-info-{j}")
+    @GetMapping(path = "/car-info/{j}")
     public String carInfo(Model model, @PathVariable Long j) {
         model.addAttribute("car", carService.showCar(j));
         return "forward:/car-info";

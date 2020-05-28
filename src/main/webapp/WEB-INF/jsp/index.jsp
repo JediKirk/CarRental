@@ -47,7 +47,7 @@
                                     <c:out value="${cars.get(j).carClass.carClass}"/>
                                 </div>
                                 <div class="item__disciption--title">
-                                    <a href="./car-info-${cars.get(j).id}">
+                                    <a href="./car-info/${cars.get(j).id}">
                                         <c:out value="${cars.get(j).brand}"/> <c:out value="${cars.get(j).model}"/><br>
                                         <span class="subtitle--year">(<c:out
                                                 value="${cars.get(j).yearOfIssue}"/> <fmt:message key="label.year" />)</span></a><br>

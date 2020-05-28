@@ -39,15 +39,4 @@ public class SignInSignUpController {
         return "redirect:http://localhost:8080/CarRental_war_exploded/";
     }
 
-    @PostMapping("/sign-in")
-    public String signIn(@ModelAttribute UserDto userDto, HttpSession httpSession) {
-        try {
-            userService.signIn(userDto);
-            httpSession.setAttribute("phoneNumber", userDto.getPassword());
-            return "redirect:http://localhost:8080/CarRental_war_exploded/";
-        } catch (RuntimeException e) {
-            return "redirect:http://localhost:8080/CarRental_war_exploded/sign-up";
-        }
-    }
-
 }

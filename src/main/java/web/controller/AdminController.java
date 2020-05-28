@@ -36,7 +36,7 @@ public class AdminController {
         }
     }
 
-    @GetMapping(path = "/admin-car-info-{j}")
+    @GetMapping(path = "/admin-car-info/{j}")
     public String adminCarInfo(Model model, @PathVariable Long j) {
         model.addAttribute("car", carService.showCar(j));
         return "forward:/admin-car-info";

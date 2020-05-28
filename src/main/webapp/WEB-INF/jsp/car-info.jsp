@@ -29,7 +29,7 @@
                 </div>
                 <div class="main__content__header--links">
                     <div class="links">
-                        <div class="button back"><a href="./">&lsaquo;</a></div>
+                        <div class="button back"><a href="/CarRental_war_exploded/index">&lsaquo;</a></div>
                         <div class="button register"><a href="sign-up">Регистрация</a></div>
                         <div class="button login"><a href="sign-in">Вход</a></div>
                     </div>
