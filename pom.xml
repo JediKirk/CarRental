@@ -18,7 +18,7 @@
         <jstl.version>1.2</jstl.version>
         <javax.servlet-api.version>4.0.1</javax.servlet-api.version>
         <lombok.version>1.18.8</lombok.version>
-        <hibernate-core.version>5.4.16.Final</hibernate-core.version>
+        <hibernate-core.version>5.4.24.Final</hibernate-core.version>
         <validation-api.version>2.0.0.Final</validation-api.version>
         <hibernate-validator.version>6.0.2.Final</hibernate-validator.version>
         <log4j.version>1.2.17</log4j.version>
